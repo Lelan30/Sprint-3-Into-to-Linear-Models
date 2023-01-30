@@ -1,0 +1,76 @@
+import pandas as pd
+import seaborn as sns
+
+crashes = sns.load_dataset("car_crashes")
+
+crashes.head()
+
+#Put data into appropriately shaped vectors and matrix
+#Two columns in the X matrix:
+#column of ones and a column with the data points for 'alcohol'(feature)
+
+import numpy as np
+
+#Create the one column
+ones = np.repeat(1,len(crashes)).reshape(-1,1)
+
+#Select a column and reshape to add an additional column
+alcohol = np.array(crashes['alcohol']).reshape(-1,1)
+
+#"Glue" the columns together
+X = np.concatenate((ones, alcohol), axis=1)
+
+#Look at the shape
+print('The feature matrix has a shape:', X.shape)
+
+#Create the dependant(target) vector
+Y = np.array(crashes['total']).reshape(-1,1)
+
+print('The target vector has a shape:', Y.shape)
+
+#Make python do the algebra
+
+#Calculate the transpose
+X_T = np.transpose(X)
+
+#Calculate X transpose multiplied by X
+X_T_X = np.matmul(X_T,X)
+
+print('X transpose multiplied by X:\n', X_T_X)
+
+#Calculate the inverse of X_T_X
+X_T_X_inv = np.linalg.inv(X_T_X)
+
+print('\nInverse of X transpose multiplied by X):\n', X_T_X_inv)
+
+#Calculate X transpose Y
+X_T_Y = np.matmul(X_T,Y)
+
+print('\nX transpose multiplied by Y:\n', X_T_Y)
+
+#Finally = calculate B = = (X'X)^-1 multiplied by X'Y
+
+B = np.matmul(X_T_X_inv,X_T_Y)
+
+print('\nThe regression coefficients B are:\n', B)
+
+#Compare these coefficients to the ones we find using scikit-learn
+#Linear Regression() model
+
+#Import the predictor class
+from sklearn.linear_model import LinearRegression
+
+#Instantiate the class (with default parameters)
+model = LinearRegression()
+
+#Change the format slightlty of X 
+#(we just need one column, no ones)
+X= np.array(crashes['alcohol']).reshape(-1,1)
+
+#Fit the model
+model.fit(X, Y)
+
+#Intercept (b_0)
+print('The intercept(b_0):', model.coef_)
+
+

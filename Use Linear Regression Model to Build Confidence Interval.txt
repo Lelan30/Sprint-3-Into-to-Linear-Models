@@ -1,0 +1,29 @@
+#Fit the Linear Model
+
+import pandas as pd
+import seaborn as sns
+import warnings
+warnings.filterwarnings('ignore')
+import statsmodels.api as sm
+
+sns.load_dataset("car_crashes")
+
+mycols = ['total', 'speeding','alcohol']
+
+crashes = crashes[mycols]
+crashes.head()
+
+Y = crashes['total']
+X = crashes['alcohol']
+
+#create the model with X and Y data
+X= sm.add_constant(X)
+model = sm.OLS(Y, X)
+
+#fit the model
+results = model.fit
+
+#look at the results that include the t-statisticts
+print(results.t_test([1,0]))
+
+

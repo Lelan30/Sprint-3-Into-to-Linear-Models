@@ -1,0 +1,59 @@
+#Adding multiple predictors to our linear regression model
+
+import pandas as pd
+import seaborn as sns
+
+crashes = sns.load_dataset('car_crashes')
+
+print(crashes.head())
+
+#Fit our model using alcohol as the independant variable
+#and total as the dependant
+
+from statsmodels.formula.api import ols
+
+#setup and fit model in one step
+model = ols('total ~ alcohol', data= crashes).fit()
+print(model.summary())
+
+#RSquared:
+#the statistical measure representing the proportion of the variance for a
+#dependant variable explained by and independant variable in a regression model
+#In this data:
+#Rsqaured is the proportion of the variance for our variable 'total'
+#explained by independant variable 'alcohol'(expressed in %)
+
+#Multiple Linear Regression
+
+#scatterplot for most sensible variable:
+#ins_premium
+
+import matplotlib.pyplot as plt
+
+fig, [ax1, ax2] = plt.subplots(1, 2, figsize=(14, 6))
+
+#compare the two independant variables to each other,
+#are they related?
+
+sns.scatterplot(x='alcohol', y='ins_premium', data= crashes, s=50, ax= ax1)
+
+#the color no represents the percentage of speeding drivers
+
+sns.scatterplot(x='alcohol', y='total', hue='ins_premium', data=crashes, s=50, palette='magma', ax=ax2);
+
+plt.show()
+plt.clf
+
+#now fit the model with two independant variables
+#setup and fit the model in one step
+
+model = ols('total ~ alcohol', data = crashes).fit()
+
+print(model.summary())
+
+
+
+
+
+
+

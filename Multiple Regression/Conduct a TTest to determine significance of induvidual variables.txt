@@ -1,0 +1,31 @@
+#Conduct A TTest to Determine the Significance of an Induvidual Variable
+
+import pandas as pd
+import seaborn as sns
+
+crashes = sns.load_dataset('car_crashes')
+
+crashes.head()
+
+from statsmodels.formula.api import ols
+
+model = ols('total ~ alcohol + speeding', data = crashes).fit()
+print(model.summary())
+
+#In the previous objective we considered speeding might be a factor in
+#total number of accidents in which a driver is involved so we added a
+#variable to our regression model to test this out
+
+#Our model says otherwise, look at the variable 'speeding'
+#we can see that we have a pvalue of .47(47%)
+#Since that pvale is lower than our critical value .050
+#we CANT reject the statement that:
+#There is NO relatioship between total accidents and speeding
+#in conclusion speeding is NOT a big factor in accidents as we might have thought
+
+#The RSquared variable was .727(73%) for variable(alcohol)
+#when a second variable (speeding) was added, the adjusted RSquared went down
+#These results would suggest that the speeding variable didnt help explain any
+#additional variation in the target variable of (total)
+#Therefor our interpretation of the Pvalue and the null hypotheses was correct
+

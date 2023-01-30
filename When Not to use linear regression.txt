@@ -1,0 +1,31 @@
+#When not to use Linear Regression:
+#with variables that have categorical outcomes(like a classification)
+#trying to model non linear relationships
+#with outliers(without adjusting for them)
+
+#1)CATEGORICAL VARIABLES
+#If we have data where we're trying to predict to which class an observation belongs,
+#then we might want to fit a classification model
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+dots = sns.load_dataset("dots")
+sns.lmplot(data=dots, x='time', y='coherence', ci=95)
+
+plt.show()
+plt.clf()
+
+#2)Non-Linear Data
+#To model data that changes overnight or daily, linear regression
+#would NOT be a good choice
+
+import pandas as pd
+
+#import data and plot
+temps = pd.read_csv('denver_temps.csv')
+
+sns.lmplot(data=temps, x='time', y='temperature', ci=95)
+
+plt.show()
+plt.clf()

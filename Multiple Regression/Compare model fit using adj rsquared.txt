@@ -1,0 +1,29 @@
+#Compare Model Fit Using Adjusted R-Squared
+
+import pandas as pd
+import seaborn as sns
+
+crashes = sns.load_dataset('car_crashes')
+
+crashes.head()
+
+from statsmodels.formula.api import ols
+model = ols('total ~ alcohol', data=crashes).fit()
+
+print(model.summary())
+
+model = ols('total ~ alcohol + speeding', data = crashes).fit()
+
+print(model.summary())
+
+#we can see that alcohol explains 72.7% of the variance in total accidents
+#when we add in speeding, the rsquared value increases to .730(73%)
+#but the adj rsquared value decreases from 0.721 to 0.719
+#Rsquared values tend to increase with the number of variables added, even if theyre not useful
+#if rsquared doesnt increase significantly when we add the new variable(s)
+#then the Adj rsquared value will decrease
+
+#The DECREASE is what happened here
+#We added speeding, and adjusted rsquared decreased
+#That would imply speeding doesnt help explain the variance in the target variable
+#total

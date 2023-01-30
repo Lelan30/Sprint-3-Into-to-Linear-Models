@@ -1,0 +1,66 @@
+#A characteristic of a vector is called its dimensions:
+#Two dimensional vector a= [79]
+#One dimensional vector b=[4 7 2]
+
+#example: 11 dimensional vector
+#c=[3 1 4 5 9 2 6 5 3]
+   #[5                ]
+
+import numpy as np
+
+#Two dimensional vector
+my_2dvector = np.array([7, 9])
+print('2D vector:', my_2dvector)
+
+#Three dimensional vector
+my_3dvector = np.array([4, 7, 2])
+print('3D vector:', my_3dvector)
+
+import matplotlib.pyplot as plt
+
+
+#plot the dimensional vector
+fig, ax= plt.subplots(1,1)
+ax.arrow(0, 0, 7, 9, width=.075)
+ax.set_xlim([0, 10]); ax.set_ylim([0, 10])
+
+plt.show()
+plt.clf
+
+#plot three dimensional vector again
+from mpl_toolkits import mplot3d
+#3D vector
+#c = [4, 7, 2]
+#vector = np.array([0, 0, 0, c[0], c[1], c[2]])
+
+#create variables for plotting
+#X, Y, Z, U, V, W = zip(*vector)
+
+#Plot
+#ax = plt.axes(projection='3d')
+#ax.quiver(X, Y, Z, U, V, W, length=1)
+#ax.set_xlim([0, 10]); ax.set_ylim([0, 10]); ax.set_zlim([0, 10])
+
+#Look at same vectors as a numpy array
+my_row_vector = np.array([8,6,7,5,3,0,9])
+print('Row vector:', my_row_vector)
+
+#Column vector
+#reshape(-1,1): specifeis one column, uknown rows
+my_column_vector = np.array([8,6,7,5,3,0,9]).reshape(-1,1)
+print('Column vector:', my_column_vector)
+
+plt.clf
+
+#Calculate dot vectors:
+# $\vec{b}$
+# $\vec{c}$
+
+#Vector length
+b = np.array([4, 7, 2])
+np.linalg.norm(b)
+
+#Dot product of two arrays (vectors)
+b = np.array([4, 7, 2])
+c = np.array([6, 1, 7])
+np.dot(b, c)

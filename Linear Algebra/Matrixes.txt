@@ -1,0 +1,23 @@
+#Creating Matrixes
+
+import numpy as np
+
+#Two dimensional Matrix
+matrix1 = np.array([[1, 2, 3], [4, 5, 6]])
+print('\n2x3 matrix\n', matrix1)
+
+#3x3 numpy array
+matrix2 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print('\n3x3 matrix\n', matrix2)
+
+#Check matrix multiplication 
+X = np.array([[1,4,8],[2,3,1]])
+Y = np.array([[1,6],[2,3],[5,7]])
+
+X_Y = np.matmul(X, Y)
+print('X * Y:\n', X_Y)
+
+#Matrix Transpose
+
+A = np.array([[1,2], [3,4], [5,6]])
+print('Origional Matrix:\n' , A)

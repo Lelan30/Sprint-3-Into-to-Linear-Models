@@ -1,0 +1,77 @@
+#Understand and define bias
+
+#irreducible errors(inherent uncertainty): is due to sa natural variability within a system
+#reducible errors: more controllable and should be minimized to ensure higher accuracy
+
+#Bias and variance are componenents of redicible error
+#Reducing errors requires selecting models that have appropriate complexity and flexibility
+
+#Bias: the calculated error du to systematic mistakes that lead to high or lower
+#results when compared to actual values
+
+#Prediction Bias: a value indicating how far apart the average of predictions is from the average
+# of labels in the dataset
+#(Prediction model is not deliberately included in a majority of model designs
+#but its used as a measure to evaluate and tune the model)
+
+-------------------------------------------------
+
+#Understanding a define Variance
+#Calculate 'variance' from average mean
+#calculate by taking the difference between each number in the data set
+# and the mean, then squaring the differemce to make them positive,
+#and finally dividing the sum of the squares by the number of values
+
+S^2 = E(x^i - x)^2/n - 1
+
+#-High variance indicates that all values within a set are far from the mean and
+#far from each other
+
+#-A small variance indicated the opposite
+
+#-A variance value of zero(0) indicates that all values within a set of numbers
+#are identical
+
+#-Every variance that isnt zero(0) is a positive number
+
+#-A variance cannot be nagative. You cant have a negative value resulting from a
+#square
+
+#Higher variances may lead to more errors in values that model hasnt seen yet
+
+-------------------------------------------------
+
+#Describing the Bias/ Variance Tradeoff
+
+#One goal of predictive modeling is to find the optimal 'sweet spot' in which we
+#minimize our error(find the ideal balance of bias and variance)
+
+#modify our model to increase or decrease complexity to find a model that 
+#generalizes well on its training and testing dataset
+
+-------------------------------------------------
+
+#Defining different types of Biases
+
+#Biases can be rectified in the data selection process as part of your EDA, data cleaning,
+#and feature selection
+
+#SELECTION BIAS:
+#-Using groups of individuals, or data in a way that does not allow for proper randomization
+#This may result in a sample that is not representative of a populace.
+#-eg...
+#Polling only induviduals who have access to a landline telephone in 2012. This democracy 
+#may not be wholly representative of all voters in the US
+
+#SURVIVORSHIP BIAS:
+#-Where interpreting the results from induviduals who have survived a long process are included
+#excluded
+#-eg...
+#During WW2 Abraham Wald took survivorship bias into his calculations when considering
+#how to minimize bomber losses to enemy fire
+
+#REFERENCY BIAS:
+#-When preference for the most recent event is favored over historic events
+#-eg...
+#The final lawyers closing argument a jury hears before being dismissed to deliberate
+

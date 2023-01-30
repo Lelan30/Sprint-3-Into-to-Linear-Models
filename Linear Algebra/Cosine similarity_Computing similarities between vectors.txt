@@ -1,0 +1,71 @@
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+# Plot identical and opposite vectors
+
+fig, [ax1, ax2, ax3] = plt.subplots(1,3, figsize=(12,3))
+
+# vector1 = [2, 4]; vector2 = [4, 8]
+# Same direction, y is twice as long
+ax1.arrow(0, 0, 2, 4, color='k', width=.15)
+ax1.arrow(0, 0, 4, 8, color='orange', width=.075)
+ax1.set_xlim([-1, 10]); ax1.set_ylim([-1, 10])
+ax1.set_title("Vectors: same direction")
+
+# vector1 = [0, 4]; vector2 = [4, 0]
+# Right angle vectors
+ax2.arrow(0, 0, 0, 4, color='k', width=.075)
+ax2.arrow(0, 0, 4, 0, color='orange', width=.075)
+ax2.set_xlim([-1, 10]); ax2.set_ylim([-1, 10])
+ax2.set_title("Vectors: perpendicular")
+
+# vector1 = [-2, -2]; vector2 = [2, 2]
+# Same length, opposite direction
+ax3.arrow(4, 4, -2, -2, color='k', width=.075)
+ax3.arrow(4, 4, 2, 2, color='orange', width=.075)
+ax3.set_xlim([-1, 10]); ax3.set_ylim([-1, 10])
+ax3.set_title("Vectors: opposite direction")
+
+plt.savefig('/Users/nicole/data_science_LS/data-science-canvas-images/unit_1/sprint_3/new/mod4_obj2_vector_angles.png',
+           transparent=False, dpi=100)
+
+#plt.show()
+plt.clf()
+
+#Cosine is the angle between hypotenuse and the adjacent side of a triangle
+
+
+#plt a pair of vectors where the angle in between 0, 90, 180
+#Vector plots
+
+x= np.array([6,4])
+y = np.array([3,7])
+
+fig, ax = plt.subplots(1,1)
+ax.arrow(0, 0, x[0], x[1], color='k', width=.075)
+ax.arrow(0, 0, y[0], y[1], color='orange', width=.075)
+ax.set_xlim([-1, 10]), ax.set_ylim([-1, 10])
+
+plt.show
+plt.clf
+
+#These vectors point in different directions.
+#We can calculate the cosine of the trangle bewteen these vectors(any Two):
+#A and B = ||A|| ||B|| cos0
+
+#solving for cos0
+#cos0 = A*B/||A|| ||B||
+
+
+#Use python to calculate cosine of triangle bewteen these vectors
+#Calculate cosine theta
+
+#vectors
+x = np.array([6, 4])
+y= np.array([3, 7])
+
+#Cosine theta(cosine similarity)
+np.dot(x, y) / (np.linalg.norm(x) * np.linalg.norm(y))
+
+#Our value of cos0 = .84 is between -1 and 1 as we expected.
