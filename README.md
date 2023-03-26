@@ -2,4 +2,6 @@
 
 ## Sprint 3: Linear Algebra
 
+Working On Linear Regression Models
+
 In the repository, you will find Warm-up Activities, Guided Projects (lectures) and Module Projects (assignment) for each module.  There is also a study guide to help you prepare for the Sprint Challenge.
